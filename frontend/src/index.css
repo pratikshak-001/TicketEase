@@ -1,0 +1,425 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --ink: #171915;
+  --muted: #6d726a;
+  --cream: #f5f3eb;
+  --lime: #d9ff74;
+  --forest: #193d2b;
+  --coral: #ff795c;
+  font-family: "DM Sans", sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: var(--cream); }
+button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; text-decoration: none; }
+button { color: inherit; }
+.site { overflow: hidden; }
+
+.nav-shell {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 20;
+  padding: 0 5.5%;
+  border-bottom: 1px solid rgba(23, 25, 21, .12);
+  background: #f8f7f1;
+}
+
+.logo { display: inline-flex; align-items: center; gap: 10px; font: 800 21px/1 "Bricolage Grotesque", sans-serif; letter-spacing: -.8px; }
+.logo-mark { width: 34px; height: 34px; display: grid; place-items: center; position: relative; border-radius: 10px; background: var(--forest); color: var(--lime); overflow: hidden; }
+.logo-mark span { font-size: 22px; font-weight: 800; transform: translateY(-1px); }
+.logo-mark i { width: 11px; height: 11px; position: absolute; right: -5px; border-radius: 50%; background: var(--cream); }
+.nav-shell nav { display: flex; align-items: center; gap: 34px; margin-left: 10%; color: #555a52; font-size: 13px; font-weight: 600; }
+.nav-shell nav a, .nav-shell nav > button { position: relative; }
+.nav-shell nav > button { padding: 0; border: 0; background: transparent; color: inherit; font-size: inherit; font-weight: inherit; cursor: pointer; }
+.nav-shell nav a:after, .nav-shell nav > button:after { content: ""; height: 1px; position: absolute; right: 100%; bottom: -6px; left: 0; background: var(--ink); transition: right .2s ease; }
+.nav-shell nav a:hover:after, .nav-shell nav > button:hover:after { right: 0; }
+.nav-actions { display: flex; align-items: center; gap: 8px; }
+.login-button, .nav-ticket, .mobile-menu { height: 39px; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 99px; cursor: pointer; }
+.login-button { gap: 7px; padding: 0 14px; background: transparent; font-size: 12px; font-weight: 600; }
+.login-button b { min-width: 17px; height: 17px; display: grid; place-items: center; border-radius: 50%; background: var(--coral); color: #35211a; font-size: 8px; }
+.nav-ticket { gap: 9px; padding: 0 17px; background: var(--forest); color: white; font-size: 12px; font-weight: 700; transition: transform .2s, background .2s; }
+.nav-ticket:hover { transform: translateY(-2px); background: #23553c; }
+.mobile-menu { display: none; width: 40px; background: transparent; }
+
+.hero-section { min-height: 640px; position: relative; padding: 70px 6.5% 95px; background: #dce8dc; }
+.hero-grain { position: absolute; inset: 0; opacity: .21; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E"); }
+.hero-content { width: min(1220px, 100%); display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: 7%; position: relative; z-index: 2; margin: auto; }
+.mini-label { display: flex; align-items: center; gap: 10px; color: #4e5d52; font-size: 10px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; }
+.mini-label span { width: 27px; height: 27px; display: grid; place-items: center; border-radius: 50%; background: var(--lime); color: var(--forest); }
+.hero-copy h1 { margin: 22px 0 21px; color: #17251c; font: 700 clamp(58px, 6vw, 92px)/.88 "Bricolage Grotesque", sans-serif; letter-spacing: -5.5px; }
+.hero-copy h1 em, .section-heading h2 em, .manifesto-copy h2 em, .steps-head h2 em { color: #4e7a5e; font-family: Georgia, serif; font-weight: 400; }
+.hero-copy p { max-width: 420px; margin: 0 0 29px; color: #5e6c62; font-size: 15px; line-height: 1.7; }
+.hero-buttons { display: flex; align-items: center; gap: 23px; }
+.primary-action { height: 51px; display: flex; align-items: center; gap: 15px; padding: 0 21px; border: 0; border-radius: 99px; background: var(--forest); color: white; font-size: 12px; font-weight: 700; cursor: pointer; box-shadow: 0 10px 24px rgba(25, 61, 43, .16); transition: transform .2s; }
+.primary-action:hover { transform: translateY(-2px); }
+.hero-buttons > span { display: flex; flex-direction: column; color: #748077; font-size: 9px; line-height: 1.35; }
+.hero-buttons b { color: #2f4135; font-size: 15px; }
+.hero-visual { height: 430px; position: relative; }
+.hero-image { width: 76%; height: 100%; position: absolute; right: 6%; overflow: hidden; border-radius: 190px 190px 24px 24px; box-shadow: 0 30px 65px rgba(26, 53, 36, .18); }
+.hero-image img { width: 100%; height: 100%; object-fit: cover; }
+.image-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 20, 15, .04), rgba(10, 20, 15, .78)); }
+.live-pill { position: absolute; top: 24px; left: 24px; display: flex; align-items: center; gap: 7px; padding: 8px 11px; border: 1px solid rgba(255,255,255,.36); border-radius: 99px; background: rgba(12,22,17,.36); color: white; backdrop-filter: blur(10px); font-size: 8px; font-weight: 800; letter-spacing: .8px; }
+.live-pill i { width: 6px; height: 6px; border-radius: 50%; background: #ff755f; box-shadow: 0 0 0 4px rgba(255,117,95,.2); }
+.hero-event-title { position: absolute; right: 30px; bottom: 27px; left: 30px; display: flex; flex-direction: column; color: white; }
+.hero-event-title > span { margin-bottom: 7px; color: var(--lime); font-size: 8px; font-weight: 700; letter-spacing: 1.3px; }
+.hero-event-title strong { font: 600 34px/1 "Bricolage Grotesque"; letter-spacing: -1.4px; }
+.hero-event-title small { display: flex; align-items: center; gap: 5px; margin-top: 9px; color: rgba(255,255,255,.78); font-size: 10px; }
+.floating-ticket { width: 157px; height: 220px; position: absolute; bottom: -16px; left: 2%; z-index: 3; display: flex; transform: rotate(-8deg); filter: drop-shadow(0 18px 26px rgba(24,39,28,.22)); }
+.ticket-stub { width: 36px; display: flex; align-items: center; justify-content: space-around; flex-direction: column; padding: 10px 0; border-right: 1px dashed rgba(25,61,43,.4); border-radius: 10px 0 0 10px; background: var(--lime); color: var(--forest); }
+.ticket-stub span { font-size: 7px; font-weight: 800; letter-spacing: 1px; writing-mode: vertical-rl; }
+.ticket-main { display: flex; flex: 1; flex-direction: column; justify-content: space-between; padding: 16px; border-radius: 0 10px 10px 0; background: var(--lime); color: var(--forest); }
+.ticket-main > span, .ticket-main small { font-size: 7px; font-weight: 800; letter-spacing: .9px; }
+.ticket-main strong { font: 800 25px/.88 "Bricolage Grotesque"; letter-spacing: -1.2px; }
+.burst { width: 77px; height: 77px; display: grid; place-items: center; position: absolute; top: 47px; right: 0; z-index: 3; color: var(--forest); font-size: 7px; font-weight: 800; line-height: 1.3; letter-spacing: .5px; text-align: center; background: var(--coral); clip-path: polygon(50% 0%,60% 17%,78% 8%,80% 29%,100% 33%,85% 49%,100% 64%,79% 69%,77% 91%,58% 81%,48% 100%,39% 81%,20% 92%,20% 70%,0 65%,14% 49%,0 33%,20% 29%,22% 8%,41% 17%); transform: rotate(9deg); }
+.discover-bar { width: min(1000px, 87%); min-height: 84px; display: flex; align-items: stretch; position: absolute; right: 0; bottom: 0; left: 50%; z-index: 5; transform: translate(-50%, 50%); padding: 10px; border: 1px solid #e5e4de; border-radius: 17px; background: white; box-shadow: 0 18px 45px rgba(31,45,35,.12); }
+.discover-field { min-width: 190px; display: flex; align-items: center; gap: 12px; padding: 0 22px; border-right: 1px solid #e6e7e2; color: #738078; }
+.discover-field.grow { flex: 1; }
+.discover-field > div { min-width: 0; display: flex; flex: 1; flex-direction: column; gap: 4px; }
+.discover-field label { color: #2b332d; font-size: 10px; font-weight: 800; }
+.discover-field input { width: 100%; padding: 0; border: 0; outline: 0; color: #5f685f; font-size: 11px; }
+.discover-field input::placeholder { color: #9ca29d; }
+.discover-field span { color: #6e756f; font-size: 11px; }
+.discover-field > svg:last-child { transform: rotate(90deg); }
+.discover-bar > button { width: 62px; display: grid; place-items: center; flex: 0 0 auto; border: 0; border-radius: 12px; background: var(--forest); color: white; cursor: pointer; transition: background .2s; }
+.discover-bar > button:hover { background: #27553f; }
+
+.marquee { overflow: hidden; padding: 76px 0 27px; border-bottom: 1px solid #dcdcd5; background: var(--cream); }
+.marquee > div { width: max-content; display: flex; align-items: center; gap: 28px; animation: drift 30s linear infinite; }
+.marquee span { color: #8d9189; font: 700 10px "Bricolage Grotesque"; letter-spacing: 2.1px; }
+.marquee i { width: 5px; height: 5px; border-radius: 50%; background: var(--coral); }
+@keyframes drift { to { transform: translateX(-10%); } }
+
+.events-section { padding: 80px 6.5% 95px; background: var(--cream); }
+.section-heading { width: min(1220px, 100%); display: flex; align-items: flex-end; justify-content: space-between; gap: 35px; margin: 0 auto 38px; }
+.overline { color: #687269; font-size: 9px; font-weight: 800; letter-spacing: 1.7px; text-transform: uppercase; }
+.section-heading h2, .manifesto-copy h2, .steps-head h2, .newsletter h2 { margin: 12px 0 0; font: 600 clamp(37px,4vw,54px)/.98 "Bricolage Grotesque"; letter-spacing: -2.5px; }
+.section-heading p { max-width: 305px; margin: 0 0 4px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.filter-row { width: min(1220px, 100%); display: flex; align-items: center; justify-content: space-between; margin: 0 auto 24px; }
+.category-list { display: flex; gap: 7px; overflow-x: auto; scrollbar-width: none; }
+.category-list button { padding: 9px 14px; border: 1px solid #d9dad4; border-radius: 99px; background: transparent; color: #686e66; font-size: 10px; font-weight: 600; white-space: nowrap; cursor: pointer; }
+.category-list button.active { border-color: var(--forest); background: var(--forest); color: white; }
+.saved-filter { display: flex; align-items: center; gap: 5px; }
+.sort-control { display: flex; align-items: center; gap: 14px; }
+.sort-control > span { color: #999d96; font-size: 9px; white-space: nowrap; }
+.sort-control label { height: 34px; display: flex; align-items: center; gap: 7px; padding: 0 9px 0 11px; border: 1px solid #d9dad4; border-radius: 99px; background: #fafaf6; }
+.sort-control label > span { color: #969b94; font-size: 8px; }
+.sort-control select { border: 0; outline: 0; background: transparent; color: #50574f; font-size: 9px; font-weight: 600; cursor: pointer; }
+.event-grid { width: min(1220px, 100%); display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; margin: auto; }
+.event-card { overflow: hidden; border: 1px solid #dedfd9; border-radius: 17px; background: #fafaf7; transition: transform .3s ease, box-shadow .3s ease; }
+.event-card:hover { transform: translateY(-5px); box-shadow: 0 18px 35px rgba(32,39,32,.09); }
+.event-image { height: 230px; position: relative; overflow: hidden; margin: 7px 7px 0; border-radius: 12px; background: #222; }
+.event-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.event-card:hover .event-image img { transform: scale(1.045); }
+.event-tint { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,15,12,.05), rgba(11,15,12,.34)); }
+.event-violet .event-tint { background: linear-gradient(180deg, rgba(91,52,146,.06), rgba(41,18,68,.48)); }
+.event-lime .event-tint { background: linear-gradient(180deg, rgba(89,135,61,.02), rgba(20,53,38,.46)); }
+.event-coral .event-tint { background: linear-gradient(180deg, rgba(199,80,44,.03), rgba(67,28,22,.44)); }
+.event-date { width: 48px; height: 54px; display: flex; align-items: center; justify-content: center; flex-direction: column; position: absolute; top: 11px; left: 11px; border-radius: 9px; background: rgba(249,249,245,.92); color: #252a25; backdrop-filter: blur(7px); }
+.event-date b { font: 700 18px/1 "Bricolage Grotesque"; }
+.event-date span { margin-top: 2px; font-size: 7px; font-weight: 800; letter-spacing: .7px; }
+.popular { position: absolute; top: 15px; left: 67px; color: white; font-size: 7px; font-weight: 800; letter-spacing: 1px; text-shadow: 0 1px 7px #000; }
+.heart-button { width: 35px; height: 35px; display: grid; place-items: center; position: absolute; top: 11px; right: 11px; border: 1px solid rgba(255,255,255,.4); border-radius: 50%; background: rgba(24,27,23,.22); color: white; backdrop-filter: blur(8px); cursor: pointer; transition: .2s; }
+.heart-button:hover, .heart-button.liked { background: white; color: var(--coral); }
+.card-number { position: absolute; right: 13px; bottom: 9px; color: rgba(255,255,255,.65); font: 600 9px "Bricolage Grotesque"; letter-spacing: 1px; }
+.event-info { padding: 17px 18px 19px; }
+.event-category { color: #67816d; font-size: 8px; font-weight: 800; letter-spacing: 1.3px; text-transform: uppercase; }
+.event-info h3 { min-height: 42px; margin: 7px 0 12px; font: 650 19px/1.15 "Bricolage Grotesque"; letter-spacing: -.7px; }
+.event-details { display: flex; flex-direction: column; gap: 6px; color: #797e77; font-size: 9px; }
+.event-details span { display: flex; align-items: center; gap: 6px; }
+.event-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 17px; padding-top: 14px; border-top: 1px solid #e5e5df; }
+.event-footer > div { display: flex; flex-direction: column; }
+.event-footer small { color: #949991; font-size: 6px; font-weight: 800; letter-spacing: 1px; }
+.event-footer strong { margin-top: 2px; font: 700 17px "Bricolage Grotesque"; }
+.event-footer button { display: flex; align-items: center; gap: 9px; padding: 9px 12px; border: 0; border-radius: 99px; background: #e8eee7; color: var(--forest); font-size: 9px; font-weight: 700; cursor: pointer; transition: background .2s, color .2s; }
+.event-footer button:hover { background: var(--forest); color: white; }
+.no-events { width: min(1220px,100%); display: flex; align-items: center; flex-direction: column; margin: auto; padding: 65px 20px; border: 1px dashed #cccec6; border-radius: 18px; text-align: center; }
+.no-events > span { width: 55px; height: 55px; display: grid; place-items: center; border-radius: 50%; background: #e3e8df; color: var(--forest); }
+.no-events h3 { margin: 15px 0 5px; font: 650 21px "Bricolage Grotesque"; }
+.no-events p { margin: 0 0 18px; color: var(--muted); font-size: 11px; }
+.no-events button { padding: 9px 14px; border: 0; border-radius: 99px; background: var(--forest); color: white; font-size: 10px; cursor: pointer; }
+
+.manifesto { display: grid; grid-template-columns: 1fr 1fr; background: var(--forest); color: white; }
+.manifesto-image { min-height: 500px; position: relative; overflow: hidden; }
+.manifesto-image:after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 60%, rgba(25,61,43,.6)); }
+.manifesto-image img { width: 100%; height: 100%; position: absolute; object-fit: cover; filter: saturate(.8); }
+.poster-note { position: absolute; right: 35px; bottom: 35px; z-index: 2; display: flex; align-items: center; gap: 9px; padding: 11px 14px; transform: rotate(-3deg); background: var(--lime); color: var(--forest); font-size: 8px; font-weight: 800; letter-spacing: 1px; line-height: 1.3; }
+.manifesto-copy { display: flex; justify-content: center; flex-direction: column; padding: 9%; }
+.manifesto-copy .overline { color: #a9c1ad; }
+.manifesto-copy h2 { font-size: clamp(46px,5vw,68px); }
+.manifesto-copy h2 em { color: var(--lime); }
+.manifesto-copy > p { max-width: 445px; margin: 25px 0 35px; color: #b9c9be; font-size: 13px; line-height: 1.8; }
+.manifesto-stats { display: flex; gap: 10%; padding-top: 23px; border-top: 1px solid rgba(255,255,255,.16); }
+.manifesto-stats div { display: flex; flex-direction: column; }
+.manifesto-stats strong { color: var(--lime); font: 650 23px "Bricolage Grotesque"; }
+.manifesto-stats span { margin-top: 4px; color: #a4b5a9; font-size: 8px; }
+
+.steps-section { padding: 92px 6.5% 100px; background: #faf9f5; }
+.steps-head { width: min(1220px,100%); margin: 0 auto 50px; text-align: center; }
+.steps-grid { width: min(1050px,100%); display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin: auto; }
+.steps-grid article { position: relative; padding: 25px 23px 26px; border-top: 1px solid #cfd1ca; text-align: center; }
+.steps-grid article > span { position: absolute; top: 13px; left: 0; color: #8a9088; font: 700 8px "Bricolage Grotesque"; }
+.step-icon { width: 66px; height: 66px; display: grid; place-items: center; margin: 0 auto 19px; border-radius: 22px; background: #e3eddf; color: var(--forest); transform: rotate(-4deg); }
+.steps-grid article:nth-child(2) .step-icon { background: #f9d8c5; transform: rotate(3deg); }
+.steps-grid article:nth-child(3) .step-icon { background: #ded6ee; transform: rotate(-2deg); }
+.steps-grid h3 { margin: 0 0 8px; font: 650 18px "Bricolage Grotesque"; }
+.steps-grid p { max-width: 235px; margin: auto; color: var(--muted); font-size: 10px; line-height: 1.65; }
+
+.newsletter { min-height: 270px; display: grid; grid-template-columns: 110px 1fr 1fr; align-items: center; gap: 35px; padding: 50px 8%; background: var(--coral); color: #322018; }
+.newsletter-symbol { width: 90px; height: 90px; display: grid; place-items: center; border: 1px solid rgba(50,32,24,.25); border-radius: 50%; }
+.newsletter .overline { color: #683b2e; }
+.newsletter h2 { font-size: clamp(37px,4vw,52px); }
+.newsletter form { max-width: 430px; display: grid; grid-template-columns: 1fr auto; align-items: center; justify-self: end; padding: 7px; border: 1px solid rgba(50,32,24,.28); border-radius: 99px; background: rgba(255,255,255,.18); }
+.newsletter input { min-width: 0; padding: 0 15px; border: 0; outline: 0; background: transparent; color: #3d251d; font-size: 11px; }
+.newsletter input::placeholder { color: rgba(61,37,29,.65); }
+.newsletter form button { height: 43px; display: flex; align-items: center; gap: 10px; padding: 0 17px; border: 0; border-radius: 99px; background: #30231e; color: white; font-size: 10px; font-weight: 700; cursor: pointer; }
+.newsletter form small { grid-column: 1/-1; padding: 8px 14px 1px; color: rgba(61,37,29,.65); font-size: 7px; }
+.newsletter form.error { border-color: rgba(89,18,8,.6); }
+.newsletter form small.form-error { color: #681e12; font-weight: 700; }
+.newsletter-success { grid-column: 1/-1; display: flex; align-items: center; gap: 10px; padding: 12px 16px; color: #35211a; font-size: 11px; font-weight: 700; }
+.newsletter-success svg { padding: 3px; border-radius: 50%; background: #35211a; color: var(--coral); }
+
+footer { padding: 65px 7% 22px; background: #111b15; color: white; }
+.footer-main { display: flex; justify-content: space-between; padding-bottom: 58px; }
+.footer-logo .logo-mark { background: var(--lime); color: var(--forest); }
+.footer-logo .logo-mark i { background: #111b15; }
+.footer-main > div:first-child p { max-width: 250px; margin: 17px 0 0; color: #7f9085; font-size: 11px; line-height: 1.6; }
+.footer-links { display: flex; gap: 85px; }
+.footer-links > div { display: flex; flex-direction: column; gap: 9px; }
+.footer-links strong { margin-bottom: 7px; color: #d6dfd9; font-size: 9px; letter-spacing: .8px; text-transform: uppercase; }
+.footer-links a, .footer-links button { padding: 0; border: 0; background: transparent; color: #829087; font-size: 10px; text-align: left; cursor: pointer; }
+.footer-links a:hover, .footer-links button:hover { color: var(--lime); }
+.footer-bottom { min-height: 50px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.09); color: #66756b; font-size: 8px; }
+.footer-bottom > div { display: flex; gap: 20px; }
+.footer-bottom button { padding: 0; border: 0; background: transparent; color: inherit; font-size: inherit; cursor: pointer; }
+.footer-bottom button:hover { color: var(--lime); }
+
+.modal-backdrop { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 18px; background: rgba(9,17,12,.78); backdrop-filter: blur(9px); animation: fadeIn .2s ease; }
+.booking-modal { width: min(790px,100%); max-height: calc(100vh - 36px); position: relative; display: grid; grid-template-columns: .85fr 1.15fr; overflow: auto; border-radius: 21px; background: #faf9f4; box-shadow: 0 30px 90px rgba(0,0,0,.38); animation: rise .3s ease; }
+@keyframes fadeIn { from { opacity: 0; } }
+@keyframes rise { from { opacity: 0; transform: translateY(18px) scale(.98); } }
+.modal-close { width: 34px; height: 34px; display: grid; place-items: center; position: absolute; top: 13px; right: 13px; z-index: 4; border: 0; border-radius: 50%; background: rgba(255,255,255,.9); cursor: pointer; }
+.modal-cover { min-height: 500px; position: relative; overflow: hidden; padding: 32px 27px; color: white; }
+.modal-cover img, .modal-cover > div { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.modal-cover > div { background: linear-gradient(180deg, rgba(10,15,11,.12), rgba(10,15,11,.83)); }
+.modal-cover > span, .modal-cover h2 { position: relative; z-index: 2; }
+.modal-cover > span { display: inline-block; margin-top: 320px; color: var(--lime); font-size: 8px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+.modal-cover h2 { margin: 8px 0 0; font: 650 30px/1.05 "Bricolage Grotesque"; letter-spacing: -1.2px; }
+.modal-body { padding: 47px 34px 27px; }
+.booking-meta { display: flex; flex-direction: column; gap: 11px; padding-bottom: 21px; border-bottom: 1px solid #dfdfd8; color: #5f685f; font-size: 10px; }
+.booking-meta span { display: flex; align-items: center; gap: 9px; }
+.booking-option, .quantity-row, .total-line { display: flex; align-items: center; justify-content: space-between; }
+.booking-option { margin: 22px 0 0; padding: 15px; border: 1px solid #d4d7cf; border-radius: 10px; background: white; box-shadow: inset 3px 0 var(--forest); }
+.booking-option > div, .quantity-row > div:first-child { display: flex; flex-direction: column; }
+.booking-option strong, .quantity-row strong { font-size: 11px; }
+.booking-option span, .quantity-row span { margin-top: 4px; color: #929890; font-size: 8px; }
+.booking-option b { font: 700 16px "Bricolage Grotesque"; }
+.quantity-row { padding: 22px 0; border-bottom: 1px solid #dfdfd8; }
+.quantity { display: flex; align-items: center; gap: 14px; }
+.quantity button { width: 29px; height: 29px; display: grid; place-items: center; border: 1px solid #d5d8d0; border-radius: 50%; background: white; cursor: pointer; }
+.quantity > span { width: 12px; margin: 0; color: var(--ink); font-size: 11px; font-weight: 700; text-align: center; }
+.total-line { padding: 22px 0 15px; }
+.total-line > span { display: flex; flex-direction: column; font-size: 11px; font-weight: 700; }
+.total-line small { margin-top: 3px; color: #979c95; font-size: 7px; font-weight: 400; }
+.total-line strong { font: 700 22px "Bricolage Grotesque"; }
+.checkout-button { width: 100%; height: 48px; display: flex; align-items: center; justify-content: center; gap: 13px; border: 0; border-radius: 99px; background: var(--forest); color: white; font-size: 11px; font-weight: 700; cursor: pointer; }
+.checkout-button:disabled { opacity: .75; cursor: wait; }
+.button-spinner { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,.35); border-top-color: white; border-radius: 50%; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.secure-note { display: flex; align-items: center; justify-content: center; gap: 5px; margin: 10px 0 0; color: #90968f; font-size: 7px; }
+.success-state { grid-column: 1/-1; display: flex; align-items: center; flex-direction: column; padding: 70px 40px; text-align: center; }
+.success-state > span { width: 66px; height: 66px; display: grid; place-items: center; margin-bottom: 22px; border-radius: 50%; background: var(--lime); color: var(--forest); }
+.success-state h2 { margin: 9px 0; font: 650 45px "Bricolage Grotesque"; letter-spacing: -2px; }
+.success-state > p { max-width: 400px; margin: 0 0 25px; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.success-ticket { width: min(350px,100%); display: flex; align-items: center; justify-content: space-between; padding: 17px 20px; border: 1px dashed #adb4aa; border-radius: 10px; background: #eef2e9; color: var(--forest); }
+.success-ticket > div { display: flex; flex-direction: column; text-align: left; }
+.success-ticket small { font-size: 7px; font-weight: 700; letter-spacing: 1px; }
+.success-ticket strong { margin-top: 5px; font: 650 18px "Bricolage Grotesque"; }
+.success-state > button { margin-top: 22px; padding: 11px 19px; border: 0; border-radius: 99px; background: var(--forest); color: white; font-size: 10px; font-weight: 700; cursor: pointer; }
+
+.account-modal { width: min(520px,100%); max-height: calc(100vh - 36px); position: relative; overflow: auto; border-radius: 22px; background: #faf9f4; box-shadow: 0 30px 90px rgba(0,0,0,.38); animation: rise .3s ease; }
+.auth-intro { padding: 39px 38px 25px; background: #e7eee4; }
+.auth-intro > span { width: 47px; height: 47px; display: grid; place-items: center; margin-bottom: 28px; border-radius: 14px; background: var(--forest); color: var(--lime); transform: rotate(-4deg); }
+.auth-intro h2, .dashboard-head h2, .legal-modal h2 { margin: 8px 0 8px; font: 650 35px/1 "Bricolage Grotesque"; letter-spacing: -1.5px; }
+.auth-intro p { max-width: 360px; margin: 0; color: #697269; font-size: 10px; line-height: 1.65; }
+.auth-form { display: flex; flex-direction: column; gap: 14px; padding: 26px 38px 16px; }
+.auth-form label { display: flex; flex-direction: column; gap: 7px; }
+.auth-form label > span { color: #4f574f; font-size: 9px; font-weight: 700; }
+.auth-form input { width: 100%; height: 44px; padding: 0 13px; border: 1px solid #d6d8d1; border-radius: 9px; outline: 0; background: white; color: var(--ink); font-size: 11px; }
+.auth-form input:focus { border-color: #507b60; box-shadow: 0 0 0 3px rgba(80,123,96,.12); }
+.inline-error { margin: -3px 0 0; color: #a13a27; font-size: 9px; }
+.auth-submit { height: 46px; display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 2px; border: 0; border-radius: 99px; background: var(--forest); color: white; font-size: 10px; font-weight: 700; cursor: pointer; }
+.demo-disclosure { margin: 0; color: #949991; font-size: 7px; line-height: 1.5; text-align: center; }
+.auth-switch { display: flex; align-items: center; justify-content: center; gap: 5px; padding: 14px 20px 24px; color: #858b84; font-size: 9px; }
+.auth-switch button { padding: 0; border: 0; background: transparent; color: #315d43; font-size: inherit; font-weight: 700; cursor: pointer; }
+
+.dashboard-modal { width: min(760px,100%); }
+.dashboard-head { display: flex; align-items: center; gap: 16px; padding: 33px 36px 25px; border-bottom: 1px solid #e0e1da; }
+.profile-avatar { width: 50px; height: 50px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 15px; background: var(--forest); color: var(--lime); font: 700 15px "Bricolage Grotesque"; }
+.dashboard-head > div:nth-child(2) { min-width: 0; flex: 1; }
+.dashboard-head h2 { margin-bottom: 4px; font-size: 29px; }
+.dashboard-head p { margin: 0; overflow: hidden; color: #8b918a; font-size: 9px; text-overflow: ellipsis; }
+.logout-button { padding: 8px 12px; border: 1px solid #d6d8d1; border-radius: 99px; background: transparent; color: #646b64; font-size: 9px; cursor: pointer; }
+.dashboard-stats { display: grid; grid-template-columns: repeat(3,1fr); margin: 22px 36px 0; overflow: hidden; border: 1px solid #dfe0da; border-radius: 12px; background: #f2f4ee; }
+.dashboard-stats div { display: flex; align-items: center; flex-direction: column; padding: 17px 10px; border-right: 1px solid #dfe0da; }
+.dashboard-stats div:last-child { border: 0; }
+.dashboard-stats strong { font: 700 22px "Bricolage Grotesque"; color: var(--forest); }
+.dashboard-stats span { margin-top: 2px; color: #898f88; font-size: 8px; }
+.dashboard-section { padding: 27px 36px 36px; }
+.dashboard-title-row { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 15px; }
+.dashboard-title-row h3 { margin: 0 0 3px; font: 650 15px "Bricolage Grotesque"; }
+.dashboard-title-row p { margin: 0; color: #969b95; font-size: 8px; }
+.dashboard-title-row button { padding: 7px 11px; border: 0; border-radius: 99px; background: #e3ebe1; color: var(--forest); font-size: 8px; font-weight: 700; cursor: pointer; }
+.booking-list { display: flex; flex-direction: column; gap: 7px; }
+.booking-list article { display: flex; align-items: center; gap: 13px; padding: 12px; border: 1px solid #e1e2dc; border-radius: 10px; background: white; }
+.booking-date { width: 43px; height: 45px; display: flex; align-items: center; justify-content: center; flex-direction: column; flex: 0 0 auto; border-radius: 8px; background: #e6ede3; color: var(--forest); }
+.booking-date b { font: 700 15px "Bricolage Grotesque"; }
+.booking-date span { font-size: 7px; font-weight: 700; }
+.booking-list-copy { min-width: 0; display: flex; flex: 1; flex-direction: column; }
+.booking-list-copy strong { overflow: hidden; font: 650 11px "Bricolage Grotesque"; text-overflow: ellipsis; white-space: nowrap; }
+.booking-list-copy span { margin-top: 3px; overflow: hidden; color: #858b84; font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
+.booking-list-copy small { margin-top: 4px; color: #a0a59f; font-size: 6px; letter-spacing: .5px; }
+.booking-list-total { display: flex; flex-direction: column; align-items: flex-end; flex: 0 0 auto; }
+.booking-list-total strong { font: 700 12px "Bricolage Grotesque"; }
+.booking-list-total span { margin-top: 3px; color: #8c928b; font-size: 7px; }
+.dashboard-empty { display: flex; align-items: center; flex-direction: column; padding: 31px; border: 1px dashed #cfd2ca; border-radius: 12px; text-align: center; }
+.dashboard-empty > span { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; background: #e6ede3; color: var(--forest); }
+.dashboard-empty h3 { margin: 12px 0 4px; font: 650 14px "Bricolage Grotesque"; }
+.dashboard-empty p { margin: 0; color: #8f958e; font-size: 8px; }
+
+.legal-modal { padding: 44px 40px 36px; }
+.legal-modal h2 { font-size: 33px; }
+.legal-modal > p { margin: 18px 0 23px; color: #687168; font-size: 11px; line-height: 1.75; }
+.legal-close { padding: 10px 17px; border: 0; border-radius: 99px; background: var(--forest); color: white; font-size: 9px; font-weight: 700; cursor: pointer; }
+.toast { position: fixed; bottom: 24px; left: 50%; z-index: 80; display: flex; align-items: center; gap: 9px; padding: 10px 15px 10px 10px; border-radius: 99px; background: #14291d; color: white; box-shadow: 0 12px 35px rgba(8,20,12,.28); font-size: 9px; font-weight: 600; opacity: 0; pointer-events: none; transform: translate(-50%,15px); transition: opacity .2s, transform .2s; }
+.toast.show { opacity: 1; transform: translate(-50%,0); }
+.toast > span { width: 23px; height: 23px; display: grid; place-items: center; border-radius: 50%; background: var(--lime); color: var(--forest); }
+
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid rgba(56,105,75,.35); outline-offset: 3px; }
+
+@media (max-width: 900px) {
+  .nav-shell nav { margin-left: 0; gap: 20px; }
+  .hero-section { padding-inline: 5%; }
+  .hero-content { grid-template-columns: .9fr 1.1fr; gap: 2%; }
+  .hero-copy h1 { font-size: 61px; letter-spacing: -4px; }
+  .hero-image { width: 82%; }
+  .discover-field { min-width: 155px; padding-inline: 14px; }
+  .event-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .filter-row { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .sort-control { width: 100%; justify-content: space-between; }
+  .manifesto-copy { padding: 8%; }
+  .manifesto-stats { gap: 7%; }
+  .newsletter { grid-template-columns: 80px 1fr; }
+  .newsletter-symbol { width: 70px; height: 70px; }
+  .newsletter form { grid-column: 2; justify-self: start; width: 100%; }
+}
+
+@media (max-width: 700px) {
+  .nav-shell { height: 65px; padding-inline: 5%; }
+  .nav-shell nav { display: none; position: absolute; top: 65px; right: 0; left: 0; align-items: stretch; flex-direction: column; gap: 0; padding: 12px 5% 20px; border-bottom: 1px solid #d9dad4; background: #f8f7f1; }
+  .nav-shell nav.open { display: flex; }
+  .nav-shell nav a, .nav-shell nav > button { padding: 13px 4px; text-align: left; }
+  .mobile-menu { display: grid; }
+  .login-button { display: none; }
+  .nav-ticket { height: 36px; padding-inline: 13px; }
+  .hero-section { padding: 52px 6% 120px; }
+  .hero-content { display: flex; flex-direction: column; align-items: stretch; }
+  .hero-copy h1 { font-size: clamp(53px,16vw,74px); letter-spacing: -4px; }
+  .hero-visual { height: 375px; margin-top: 45px; }
+  .hero-image { width: 88%; right: 0; }
+  .floating-ticket { left: 0; transform: rotate(-7deg) scale(.83); transform-origin: bottom left; }
+  .burst { right: -8px; }
+  .discover-bar { width: 88%; min-height: 0; display: grid; grid-template-columns: 1fr 1fr 52px; transform: translate(-50%,55%); }
+  .discover-field { min-width: 0; height: 54px; padding-inline: 12px; }
+  .discover-field.grow { grid-column: 1/-1; border-right: 0; border-bottom: 1px solid #e6e7e2; }
+  .discover-bar > button { width: 52px; }
+  .marquee { padding-top: 100px; }
+  .events-section { padding: 65px 5% 75px; }
+  .section-heading { align-items: flex-start; flex-direction: column; }
+  .section-heading h2, .manifesto-copy h2, .steps-head h2 { font-size: 43px; }
+  .sort-control > span { display: none; }
+  .category-list { padding-bottom: 5px; }
+  .event-grid { grid-template-columns: 1fr; }
+  .event-image { height: 245px; }
+  .manifesto { grid-template-columns: 1fr; }
+  .manifesto-image { min-height: 390px; }
+  .manifesto-copy { padding: 65px 7%; }
+  .steps-section { padding: 70px 5%; }
+  .steps-grid { grid-template-columns: 1fr; gap: 15px; }
+  .steps-grid article { padding-block: 22px; }
+  .newsletter { grid-template-columns: 1fr; gap: 25px; padding: 55px 7%; }
+  .newsletter-symbol { display: none; }
+  .newsletter form { grid-column: 1; }
+  .footer-main { flex-direction: column; gap: 45px; }
+  .footer-links { gap: 12%; }
+  .footer-bottom > span:nth-child(2) { display: none; }
+  .booking-modal { grid-template-columns: 1fr; }
+  .modal-cover { min-height: 225px; }
+  .modal-cover > span { margin-top: 105px; }
+  .modal-body { padding: 27px 24px 23px; }
+  .auth-intro { padding: 34px 25px 23px; }
+  .auth-form { padding-inline: 25px; }
+  .dashboard-head { align-items: flex-start; padding: 31px 24px 22px; }
+  .dashboard-stats { margin-inline: 24px; }
+  .dashboard-section { padding: 25px 24px 30px; }
+}
+
+@media (max-width: 430px) {
+  .logo { font-size: 18px; }
+  .nav-ticket { font-size: 10px; }
+  .nav-ticket svg { display: none; }
+  .hero-copy p { font-size: 13px; }
+  .hero-buttons { align-items: flex-start; flex-direction: column; gap: 14px; }
+  .hero-visual { margin-top: 25px; }
+  .hero-image { width: 92%; }
+  .discover-field:nth-child(3) { display: none; }
+  .discover-bar { grid-template-columns: 1fr 52px; }
+  .discover-field:nth-child(2) { border-right: 0; }
+  .manifesto-stats { justify-content: space-between; gap: 5px; }
+  .manifesto-stats span { max-width: 70px; }
+  .newsletter form { border-radius: 14px; grid-template-columns: 1fr; gap: 8px; }
+  .newsletter input { height: 40px; }
+  .newsletter form button { justify-content: center; }
+  .footer-links { flex-wrap: wrap; gap: 35px; }
+  .dashboard-head { flex-wrap: wrap; }
+  .logout-button { margin-left: 66px; }
+  .dashboard-stats { grid-template-columns: 1fr; }
+  .dashboard-stats div { border-right: 0; border-bottom: 1px solid #dfe0da; }
+  .booking-list article { align-items: flex-start; }
+  .booking-list-total { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* ---- Seat picker (booking modal) ---- */
+.seat-section { padding: 20px 0 6px; border-bottom: 1px solid #dfdfd8; }
+.seat-section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
+.seat-section-head strong { font-size: 11px; }
+.seat-section-head span { color: #929890; font-size: 8px; }
+.seat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); gap: 8px; margin-bottom: 14px; }
+.seat { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 10px 4px; border: 1px solid #d4d7cf; border-radius: 10px; background: white; color: var(--ink); cursor: pointer; transition: border-color .15s, background .15s; }
+.seat b { font-size: 12px; font-weight: 700; }
+.seat small { color: #79807a; font-size: 8px; }
+.seat:hover:not(:disabled) { border-color: var(--forest); }
+.seat.selected { border-color: var(--forest); background: var(--forest); color: white; }
+.seat.selected small { color: var(--lime); }
+.seat:disabled { border-style: dashed; background: #eceee8; color: #b0b5ad; cursor: not-allowed; }
+.seat:disabled small { color: #b0b5ad; }
+.seat-note { margin: 0 0 14px; color: #79807a; font-size: 10px; }
+.link-button { padding: 0; border: 0; background: none; color: var(--forest); font-size: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; }
+.event-footer button:disabled { opacity: .5; cursor: not-allowed; }
+.event-footer button:disabled:hover { background: #e8eee7; color: var(--forest); }
+.auth-submit:disabled { opacity: .75; cursor: wait; }
