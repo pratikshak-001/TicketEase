@@ -42,7 +42,7 @@ def get_db_connection():
         user=os.environ.get("DB_USER", "root"),
         # Better: set DB_PASSWORD as an environment variable instead of
         # keeping the real password in this file.
-        password=os.environ.get("DB_PASSWORD", "Pratisql26"),
+        password=os.environ.get("DB_PASSWORD", "yoursqlpassword"),
         database=os.environ.get("DB_NAME", "ticket_booking"),
         autocommit=True,
     )
